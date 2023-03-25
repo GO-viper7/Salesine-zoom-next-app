@@ -22,7 +22,7 @@ export default function Recordings(props) {
     query: { topic, id, video, trans, rec },
   } = router
   console.log(rec)
-  const set = `/Recordings/${video}`
+  const set = "/Recordings/" + video
   return (
     <>
       <div style={{margin: '20px'}}>
