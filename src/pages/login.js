@@ -13,12 +13,10 @@ import {
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/router'
-import { Head } from 'next/document';
+
 
 export default function AuthenticationTitle() {
-  <Head>
-    <title>Salesine | Login</title>
-  </Head>
+
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
