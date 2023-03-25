@@ -9,14 +9,11 @@ import {
   Button,
 } from '@mantine/core';
 import Link from 'next/link';
-import { Head } from 'next/document';
 import { useState } from 'react';
 import { useRouter } from 'next/router'
 
 export default function AuthenticationTitle() {
-  <Head>
-    <title>Salesine | Register</title>
-  </Head>
+
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
