@@ -22,6 +22,7 @@ export default function Recordings(props) {
     query: { topic, id, video, trans, rec },
   } = router
   console.log(rec)
+  const set = `/Recordings/${video}`
   return (
     <>
       <div style={{margin: '20px'}}>
@@ -32,7 +33,7 @@ export default function Recordings(props) {
         <div style={{display: 'flex',  alignItems: 'center'}}>
           { btn === 'Transcript' ?
             <video width='55%' height='40%' controls>
-                <source src={`/Recordings/${video}`} type="video/mp4" />
+                <source src={set} type="video/mp4" />
             </video> : 
             <Card shadow="sm" padding="xs"  radius="md"   withBorder style={{height: '400px', cursor: 'pointer', width: '60%' }}>
               <h2 style={{textAlign: 'center'}}>Transcript</h2>
