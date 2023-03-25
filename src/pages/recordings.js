@@ -37,6 +37,7 @@ export default function Recordings(props) {
             </video> : 
             <Card shadow="sm" padding="xs"  radius="md"   withBorder style={{height: '400px', cursor: 'pointer', width: '60%' }}>
               <h2 style={{textAlign: 'center'}}>Transcript</h2>
+              {console.log(trans)}
               <h3>{trans}</h3>
             </Card>
           }

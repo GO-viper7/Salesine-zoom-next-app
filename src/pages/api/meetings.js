@@ -61,9 +61,16 @@ export default async function meetings(req, res) {
           Authorization: `Bearer ${token}`,
         },
       });
-  
-      const result = [...obj, ...meetingsResponse.data.meetings]
- 
+      const addObj = meetingsResponse.data.meetings.map((meeting) => {
+        return {
+          ...meeting,
+          video: "",
+          rec: false,
+          trans: ""
+        }
+      })
+      const result = [...obj, ...addObj]
+      console.log(result)
       res.status(200).json({ meetings: result });
     })
     .catch(function (error) {
