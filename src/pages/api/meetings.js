@@ -7,7 +7,7 @@ export default async function meetings(req, res) {
     start_time: "2023-03-25T12:50:13Z",
     rec: true,
     video: "zoom-1/video1113803898.mp4",
-    trans: 'this is test one'
+    trans: '[this is test one]'
   },
   {
     id: 88646806966,
@@ -15,7 +15,7 @@ export default async function meetings(req, res) {
     start_time: "2023-03-25T12:56:14Z",
     rec: true,
     video: "zoom-2/video1940679266.mp4",
-    trans: 'this is test two'
+    trans: '[this is test two]'
   },
   {
     id: 88646806556,
@@ -23,7 +23,7 @@ export default async function meetings(req, res) {
     start_time: "2023-03-25T12:57:56Z",
     rec: true,
     video: "zoom-3/video1406543739.mp4",
-    trans: 'this is test three'
+    trans: '[this is test three]'
   },
   {
     id: 82880894354,
@@ -31,7 +31,7 @@ export default async function meetings(req, res) {
     start_time: "2023-03-25T13:00:18Z",
     rec: true,
     video: "zoom-4/video1867469101.mp4",
-    trans: 'this is test four'
+    trans: '[this is test four]'
   },
   {
     id: 86067369415,
@@ -39,7 +39,7 @@ export default async function meetings(req, res) {
     start_time: "2023-03-25T13:01:44Z",
     rec: true,
     video: "zoom-5/video1851023831.mp4",
-    trans: 'this is test five'
+    trans: '[this is test five]'
   }]
   try {
    
