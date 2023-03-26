@@ -10,17 +10,13 @@ import axios from 'axios'
 
 export default function Home() {
   const router = useRouter();
-  if (typeof window !== 'undefined') {
-    if(localStorage.getItem('token') === null) {
-      router.push('/login');
-    }
-  }
+  // if (typeof window !== 'undefined') {
+  //   if(localStorage.getItem('token') === null) {
+  //     router.push('/login');
+  //   }
+  // }
   const [btn, setBtn] = useState(false);
-  if (typeof window !== 'undefined') {
-    if(localStorage.getItem('token') === null) {
-      router.push('/login');
-    }
-  }
+ 
 
   const [name, setName] = useState('');
   const [startTime, setStartTime] = useState('');

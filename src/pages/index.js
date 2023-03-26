@@ -4,14 +4,15 @@ import SideBar from '@/components/SideBar'
 import VideoRec from '@/components/VideoRec'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Skeleton } from '@mantine/core'
 
 export default function Home() {
   const router = useRouter();
-  if (typeof window !== 'undefined') {
-    if(localStorage.getItem('token') === null) {
-      router.push('/login');
-    }
-  }
+  // if (typeof window !== 'undefined') {
+  //   if(localStorage.getItem('token') === null) {
+  //     router.push('/login');
+  //   }
+  // }
   const [calls, setCalls] = useState([
     
   ]);
@@ -54,7 +55,29 @@ export default function Home() {
                     <br/>
                 </>
               )
-            })  : <h1>Loading Calls . . . [may take few seconds] </h1>
+            })  : <>
+            <Skeleton height={50} circle mb="xl" />
+            <Skeleton height={8} radius="xl" />
+            <Skeleton height={8} mt={6} radius="xl" />
+            <Skeleton height={8} mt={6} width="70%" radius="xl" />
+            <br/>
+            <Skeleton height={50} circle mb="xl" />
+            <Skeleton height={8} radius="xl" />
+            <Skeleton height={8} mt={6} radius="xl" />
+            <Skeleton height={8} mt={6} width="70%" radius="xl" />
+            <br/>
+            <Skeleton height={50} circle mb="xl" />
+            <Skeleton height={8} radius="xl" />
+            <Skeleton height={8} mt={6} radius="xl" />
+            <Skeleton height={8} mt={6} width="70%" radius="xl" />
+            <br/>
+            <Skeleton height={50} circle mb="xl" />
+            <Skeleton height={8} radius="xl" />
+            <Skeleton height={8} mt={6} radius="xl" />
+            <Skeleton height={8} mt={6} width="70%" radius="xl" />
+            <br/>
+          
+          </>
            
           }
          
