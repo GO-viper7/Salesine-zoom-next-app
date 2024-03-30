@@ -1,12 +1,10 @@
-import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import { useRouter } from 'next/router'
-import SideBar from '@/components/SideBar'
-import { Group, Input, Button, } from '@mantine/core'
-import { useState, useEffect  } from 'react'
-import axios from 'axios'
-
-
+import Head from "next/head";
+import { Inter } from "next/font/google";
+import { useRouter } from "next/router";
+import SideBar from "@/components/SideBar";
+import { Group, Input, Button } from "@mantine/core";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Home() {
   const router = useRouter();
@@ -16,50 +14,49 @@ export default function Home() {
   //   }
   // }
   const [btn, setBtn] = useState(false);
- 
 
-  const [name, setName] = useState('');
-  const [startTime, setStartTime] = useState('');
-  const [duration, setDuration] = useState('');
-  const [repeat, setRepeat] = useState('');
-  const [url, setUrl] = useState('');
+  const [name, setName] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [duration, setDuration] = useState("");
+  const [repeat, setRepeat] = useState("");
+  const [url, setUrl] = useState("");
   const [calls, setCalls] = useState([]);
   useEffect(() => {
     const populateCalls = () => {
-      const data = axios.get('api/meetings')
+      const data = axios
+        .get("api/meetings")
         .then((response) => {
-          setCalls(response.data.meetings)
-          console.log(calls)
+          setCalls(response.data.meetings);
+          console.log(calls);
         })
         .catch((err) => {
           console.log(err);
-        })
-      }
+        });
+    };
     populateCalls();
-  }, [])
+  }, []);
 
   const submitHandler = () => {
-
- 
-    const data = axios.post('api/zoom', {
-      name: name,
-      startTime: startTime,
-      duration: duration,
-      repeat: repeat
+    const data = axios
+      .post("api/zoom", {
+        name: name,
+        startTime: startTime,
+        duration: duration,
+        repeat: repeat,
       })
       .then((response) => {
-        setUrl(response.data.join_url)
-        setBtn(true)
+        setUrl(response.data.join_url);
+        setBtn(true);
       })
       .catch((err) => {
         console.log(err);
-      })
-    }
+      });
+  };
 
   const joinHandler = () => {
-    window.location.href = url
-  }
-  
+    window.location.href = url;
+  };
+
   return (
     <>
       <Head>
@@ -68,67 +65,66 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div style={{display: 'flex'}}>
-        <SideBar calls={calls.length > 0 ? calls : []} act="Initiate Zoom Meeting"/>
-        <div style={{marginLeft: '250px', height: '100%', width: '50%'}}>
-          <h1 >
-            Initiate Zoom Meeting
-          </h1>
-         
-            <Input
-              onChange={(e) => {
-                console.log(e.target.value)
-                setName(e.target.value)}}
-           
-              label="Meeting Name"
-              placeholder="Meeting Name"
-              size="xl"
-            />
-             <br/>
-            <Input
-              onChange={(e) => setStartTime(e.target.value)}
-            
-              placeholder="Start Time (in 24 hour format)"
-              max={24}
-              min={0}
-              size="xl"
-            />
-         
-          <br/>
-         
-            <Input  
-              onChange={(e) => setDuration(e.target.value)}
-            
-              placeholder="Duration (in minutes)"
-              max={60}
-              min={30}
-              size="xl"
-            />
-             <br/>
-             <Input component="select" size="xl" onChange={(e) => setRepeat(e.target.value)}>
-                <option value="1">Daily</option>
-                <option value="2">Weekly</option>
-                <option value="3">Monthly</option>
-              </Input>
-            
-       
-          <br/>
-          <Group >
+      <div style={{ display: "flex" }}>
+        <SideBar
+          calls={calls.length > 0 ? calls : []}
+          act="Initiate Zoom Meeting"
+        />
+        <div style={{ marginLeft: "25%", height: "100%", width: "50%" }}>
+          <h1>Initiate Zoom Meeting</h1>
+
+          <Input
+            onChange={(e) => {
+              console.log(e.target.value);
+              setName(e.target.value);
+            }}
+            label="Meeting Name"
+            placeholder="Meeting Name"
+            size="xl"
+          />
+          <br />
+          <Input
+            onChange={(e) => setStartTime(e.target.value)}
+            placeholder="Start Time (in 24 hour format)"
+            max={24}
+            min={0}
+            size="xl"
+          />
+
+          <br />
+
+          <Input
+            onChange={(e) => setDuration(e.target.value)}
+            placeholder="Duration (in minutes)"
+            max={60}
+            min={30}
+            size="xl"
+          />
+          <br />
+          <Input
+            component="select"
+            size="xl"
+            onChange={(e) => setRepeat(e.target.value)}
+          >
+            <option value="1">Daily</option>
+            <option value="2">Weekly</option>
+            <option value="3">Monthly</option>
+          </Input>
+
+          <br />
+          <Group>
             <Button size="lg" onClick={submitHandler}>
               Initiate
             </Button>
-            
-              {
-                btn == true ?
-                  <Button size="lg" onClick={joinHandler} variant="outline">
-                    Join Meeting
-                  </Button>
-                : null
-              }
-            
-          </Group> 
+
+            {btn == true ? (
+              <Button size="lg" onClick={joinHandler} variant="outline">
+                Join Meeting
+              </Button>
+            ) : null}
+          </Group>
         </div>
       </div>
     </>
-  )
+  );
 }

@@ -41,7 +41,7 @@ export default function Home() {
       </Head>
       <div style={{display: 'flex'}}>
         <SideBar calls={calls.length > 0 ? calls : []} act="All Calls"/>
-        <div style={{marginLeft: '250px', height: '100%', width: '50%'}}>
+        <div style={{marginLeft: '25%', height: '100%', width: '50%'}}>
           <h1 >
             All Calls
           </h1>

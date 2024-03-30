@@ -167,11 +167,7 @@ export default function SideaBar(props) {
 
   return (
     <>
-      <Group position="center">
-        <Button onClick={open}>Open modal</Button>
-      </Group>
       <Navbar
-        height={700}
         width={{ sm: 300 }}
         p="md"
         fixed={true}
